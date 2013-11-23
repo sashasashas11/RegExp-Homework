@@ -1,6 +1,21 @@
 /**
  * Created by sasha on 23.11.13.
  */
+!function(){
+	function prepare(line){
+		var originalArgument= arguments,
+			count = 1;
 
-console.log( "my name is sergii".replace("sergii", "max") ); // my name is max
-console.log( "24px 56px".replace(/(\d+)px/, "#$1") ); // #24 56px
+		return line.replace(/(\$\d+)/g, function(){
+			return originalArgument[count++];
+		});
+	}
+
+	var name = "sergii",
+		id = 25;
+
+	console.log( prepare('<li id="user-$1">$2</li>', id, name) );
+// <li id="user-25">sergii</li>
+
+}();
+
