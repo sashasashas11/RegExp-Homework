@@ -5,9 +5,8 @@
 	function prepare(line){
 		var originalArgument= arguments;
 
-		return line.replace(/\$(\d+)/g, function(x){
-			console.log(originalArgument);
-			return originalArgument[x.match(/\d/g)];
+		return line.replace(/\$(\d+)/g, function(x, index){
+			return originalArgument[index];
 		});
 	}
 
