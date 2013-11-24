@@ -3,11 +3,10 @@
  */
 !function(){
 	function prepare(line){
-		var originalArgument= arguments,
-			count = 1;
+		var originalArgument= arguments;
 
-		return line.replace(/(\$\d+)/g, function(){
-			return originalArgument[count++];
+		return line.replace(/(\$\d+)/g, function(x){
+			return originalArgument[x.match(/\d/g)];
 		});
 	}
 
