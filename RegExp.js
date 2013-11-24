@@ -15,6 +15,5 @@
 
 	console.log( prepare('<li id="user-$1">$2</li>', id, name) );
 // <li id="user-25">sergii</li>
-
 }();
 
